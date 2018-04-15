@@ -1,0 +1,91 @@
+package com.comtrade.edit2014sales;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.preference.PreferenceManager;
+import android.text.format.DateFormat;
+import android.widget.Toast;
+
+public class CardDetails {
+        private String brojKartice;
+        private String imeKupca;
+        private String prezimeKupca;
+        private String datumZadnjePromjene;
+        private String urlSlikeKupca;
+        private String brojBodova;
+      
+        
+        public CardDetails(){
+        }
+        
+        public CardDetails(String text) {
+                String[] podaci = new String[6];
+                podaci = text.split("\\*");
+                this.setBrojKartice(podaci[0]);
+                this.setUrlSlikeKupca(podaci[1]);
+                this.setImeKupca(podaci[2]);
+                this.setPrezimeKupca(podaci[3]);
+                this.setBrojBodova(podaci[4]);
+                this.setDatumZadnjePromjene(podaci[5]);
+        }
+        
+        public String getBrojKartice() {
+                return brojKartice;
+        }
+        public void setBrojKartice(String brojKartice) {
+                this.brojKartice = brojKartice;
+        }
+        public String getImeKupca() {
+                return imeKupca;
+        }
+        public void setImeKupca(String imeKupca) {
+                this.imeKupca = imeKupca;
+        }
+        public String getPrezimeKupca() {
+                return prezimeKupca;
+        }
+        public void setPrezimeKupca(String prezimeKupca) {
+                this.prezimeKupca = prezimeKupca;
+        }
+        public String getDatumZadnjePromjene() {
+                return datumZadnjePromjene;
+        }
+        public void setDatumZadnjePromjene(String datumZadnjePromjene) {
+                this.datumZadnjePromjene = datumZadnjePromjene;
+        }
+        public String getUrlSlikeKupca() {
+                return urlSlikeKupca;
+        }
+        public void setUrlSlikeKupca(String urlSlikeKupca) {
+                this.urlSlikeKupca = urlSlikeKupca;
+        }
+        public String getBrojBodova() {
+                return brojBodova;
+        }
+        public void setBrojBodova(String brojBodova) {
+                this.brojBodova = brojBodova;
+        } 
+        
+        public String upis (CardDetails cd, int novi_bodovi){       		      	        	
+        	String noviPodaci="";
+        	String ime=cd.getImeKupca();
+        	String prezime=cd.getPrezimeKupca();
+        	String kartica=cd.getBrojKartice();
+        	float bodovi=Float.parseFloat(cd.getBrojBodova())+100;
+        	String bodovi_string = String.valueOf(bodovi);
+        	String loyalty=cd.getBrojBodova();
+        	//datum
+        	Date date = Calendar.getInstance().getTime();
+        	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            String datum = formatter.format(date);       	
+        	String url=cd.getUrlSlikeKupca();
+        	
+        	noviPodaci=kartica+"*"+url+"*"+ime+"*"+prezime+"*"+bodovi_string+"*"+datum;
+        	return noviPodaci;
+        }
+           
+}

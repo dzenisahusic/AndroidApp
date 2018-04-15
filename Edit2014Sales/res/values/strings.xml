@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NFCLoyaltySales</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_kasa_fragment">KasaFragment</string>
+    <string name="title_activity_lista_artikala_fragment">ListaArtikalaFragment</string>
+    <string name="title_activity_dodaj_artikal_fragment">DodajArtikalFragment</string>
+    <string name="title_activity_tabs_pager_adapter">TabsPagerAdapter</string>
+
+</resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.comtrade.edit2014salesDzenisa"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <uses-feature 
+        android:name="android.hardware.nfc"
+    	android:required="true" />
+    
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+
+    <application 
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.comtrade.edit2014sales.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.comtrade.edit2014sales.KasaFragment"
+            android:label="@string/title_activity_kasa_fragment" >
+        </activity>
+        <activity
+            android:name="com.comtrade.edit2014sales.ListaArtikalaFragment"
+            android:label="@string/title_activity_lista_artikala_fragment" >
+        </activity>
+        <activity
+            android:name="com.comtrade.edit2014sales.DodajArtikalFragment"
+            android:label="@string/title_activity_dodaj_artikal_fragment" >
+        </activity>
+        <activity
+            android:name="com.comtrade.edit2014sales.TabsPagerAdapter"
+            android:label="@string/title_activity_tabs_pager_adapter" >
+        </activity>
+        
+        
+    <activity
+            android:screenOrientation="landscape"
+            android:name="com.comtrade.edit2014sales.NFCCardActivity"
+             >
+            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/nfc_tech_filter" />
+        </activity>
+        
+        
+        
+        
+    </application>
+
+</manifest>
